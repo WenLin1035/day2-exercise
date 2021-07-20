@@ -6,33 +6,33 @@
  */
 
 
-const calculator = {
-    num1:'a',
-    num2:'a',
-    read: function(){
+function Calculator() {
+    this.num1 = 'a';
+    this.num2 = 'a';
+    this.read = function(){
         do{
             num1 = parseInt(prompt("Enter first number:", ""));
         } while (isNaN(num1));
         do{
             num2 = parseInt(prompt("Enter second number:", ""));
         } while (isNaN(num2));
-    },
-    sum: function() {
+    };
+    this.sum = function() {
         let n1 = document.createElement('p');
         n1.innerHTML = num1 + " + " + num2 + " = " + (num1 + num2);
         document.getElementById('cal').appendChild(n1);
         return num1 + num2;
-    },
-    mul: function() {
+    };
+    this.mul = function() {
         let n1 = document.createElement('p');
         n1.innerHTML = num1 + " * " + num2 + " = " + (num1 * num2);
         document.getElementById('cal').appendChild(n1);
         return num1 * num2;
-    }
+    };
 };
 
-function startcalc() {
-    let calc = Object.create(calculator);
+function Startcalc() {
+    let calc = new Calculator();
     calc.read();
     calc.sum();
     calc.mul();
